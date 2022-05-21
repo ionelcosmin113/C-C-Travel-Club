@@ -1,0 +1,67 @@
+package proiect.fis.CC.model;
+
+public class Rooms {
+    private String number;
+    private String price;
+    private String descriprion;
+    private String newcategory;
+    private String newdescription;
+    private String username;
+
+    public Rooms(String descriprion, String price, String number, String newcategory, String newdescription, String username) {
+        this.descriprion = descriprion;
+        this.price = price;
+        this.number = number;
+        this.newcategory = newcategory;
+        this.newdescription = newdescription;
+        this.username = username;
+    }
+
+    public String getDescriprion() {
+        return this.descriprion;
+    }
+
+    public String getNumber() {
+        return this.number;
+    }
+
+    public String getPrice() {
+        return this.price;
+    }
+
+    public String getNewcategory() {
+        return this.newcategory;
+    }
+
+    public void setNewcategory(String newcategory) {
+        this.newcategory = newcategory;
+    }
+
+    public String getNewdescription() {
+        return this.newdescription;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setNewdescription(String newdescription) {
+        this.newdescription = newdescription;
+    }
+
+    public void setDescriprion(String descriprion) {
+        this.descriprion = descriprion;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+}
