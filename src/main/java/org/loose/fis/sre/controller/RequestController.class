@@ -1,0 +1,444 @@
+package proiect.fis.CC.controller;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import org.controlsfx.control.Notifications;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+public class RequestController {
+    @FXML
+    private ListView<String> List;
+    @FXML
+    private ListView<String> List1;
+    @FXML
+    private AnchorPane go;
+    @FXML
+    private Text message;
+    @FXML
+    private TextField check;
+    @FXML
+    private Text mess;
+    ArrayList<String> list = new ArrayList();
+    ArrayList<String> list1 = new ArrayList();
+    JSONParser parser1 = new JSONParser();
+    private String username = "";
+    private String user = "";
+    private String hotel = "";
+    private String data = "";
+    private String hotel1 = "";
+    private JSONArray requests = new JSONArray();
+
+    public RequestController() {
+    }
+
+    public void initialize() {
+        new JSONObject();
+
+        FileReader reader;
+        Throwable var3;
+        try {
+            reader = new FileReader("src/main/java/data/logininfo.json");
+            var3 = null;
+
+            try {
+                JSONObject json = (JSONObject)this.parser1.parse(reader);
+                this.username = json.get("username").toString();
+            } catch (Throwable var107) {
+                var3 = var107;
+                throw var107;
+            } finally {
+                if (reader != null) {
+                    if (var3 != null) {
+                        try {
+                            reader.close();
+                        } catch (Throwable var106) {
+                            var3.addSuppressed(var106);
+                        }
+                    } else {
+                        reader.close();
+                    }
+                }
+
+            }
+        } catch (IOException var121) {
+            var121.printStackTrace();
+        } catch (ParseException var122) {
+            var122.printStackTrace();
+        }
+
+        Iterator it;
+        JSONObject obj;
+        JSONArray jsonArray;
+        try {
+            reader = new FileReader("src/main/java/data/data.json");
+            var3 = null;
+
+            try {
+                jsonArray = (JSONArray)this.parser1.parse(reader);
+                it = jsonArray.iterator();
+
+                while(it.hasNext()) {
+                    obj = (JSONObject)it.next();
+                    this.user = obj.get("username").toString();
+                    if (this.user.equals(this.username)) {
+                        this.hotel = obj.get("hotelName").toString();
+                    }
+                }
+            } catch (Throwable var116) {
+                var3 = var116;
+                throw var116;
+            } finally {
+                if (reader != null) {
+                    if (var3 != null) {
+                        try {
+                            reader.close();
+                        } catch (Throwable var105) {
+                            var3.addSuppressed(var105);
+                        }
+                    } else {
+                        reader.close();
+                    }
+                }
+
+            }
+        } catch (IOException var118) {
+            var118.printStackTrace();
+        } catch (ParseException var119) {
+            var119.printStackTrace();
+        }
+
+        String x;
+        String y;
+        try {
+            reader = new FileReader("src/main/java/data/rooms.json");
+            var3 = null;
+
+            try {
+                jsonArray = (JSONArray)this.parser1.parse(reader);
+                it = jsonArray.iterator();
+
+                while(it.hasNext()) {
+                    obj = (JSONObject)it.next();
+                    x = obj.get("Number").toString();
+                    y = obj.get("UserName").toString();
+                    if (y.equals(this.username)) {
+                        this.list.add(x);
+                    }
+                }
+            } catch (Throwable var112) {
+                var3 = var112;
+                throw var112;
+            } finally {
+                if (reader != null) {
+                    if (var3 != null) {
+                        try {
+                            reader.close();
+                        } catch (Throwable var104) {
+                            var3.addSuppressed(var104);
+                        }
+                    } else {
+                        reader.close();
+                    }
+                }
+
+            }
+        } catch (IOException var114) {
+            var114.printStackTrace();
+        } catch (ParseException var115) {
+            var115.printStackTrace();
+        }
+
+        this.List.getItems().addAll(this.list);
+
+        try {
+            reader = new FileReader("src/main/java/data/request.json");
+            var3 = null;
+
+            try {
+                jsonArray = (JSONArray)this.parser1.parse(reader);
+                this.requests = jsonArray;
+                it = jsonArray.iterator();
+
+                while(it.hasNext()) {
+                    obj = (JSONObject)it.next();
+                    x = obj.get("request").toString();
+                    y = obj.get("hotel").toString();
+                    String z = obj.get("status").toString();
+                    if (z.equals("Pending") && y.equals(this.hotel)) {
+                        this.list1.add(x);
+                    }
+                }
+            } catch (Throwable var108) {
+                var3 = var108;
+                throw var108;
+            } finally {
+                if (reader != null) {
+                    if (var3 != null) {
+                        try {
+                            reader.close();
+                        } catch (Throwable var103) {
+                            var3.addSuppressed(var103);
+                        }
+                    } else {
+                        reader.close();
+                    }
+                }
+
+            }
+        } catch (IOException var110) {
+            var110.printStackTrace();
+        } catch (ParseException var111) {
+            var111.printStackTrace();
+        }
+
+        this.List1.getItems().addAll(this.list1);
+    }
+
+    @FXML
+    void Check() {
+        String x = this.check.getText();
+
+        try {
+            Reader reader = new FileReader("src/main/java/data/request.json");
+            Throwable var3 = null;
+
+            try {
+                JSONArray jsonArray = (JSONArray)this.parser1.parse(reader);
+
+                for(int i = 0; i < jsonArray.size(); ++i) {
+                    JSONObject o = (JSONObject)jsonArray.get(i);
+                    if (o.get("request").equals(x)) {
+                        this.message.setText("The room is available");
+                        break;
+                    }
+
+                    this.message.setText("The room is not available");
+                }
+            } catch (Throwable var16) {
+                var3 = var16;
+                throw var16;
+            } finally {
+                if (reader != null) {
+                    if (var3 != null) {
+                        try {
+                            reader.close();
+                        } catch (Throwable var15) {
+                            var3.addSuppressed(var15);
+                        }
+                    } else {
+                        reader.close();
+                    }
+                }
+
+            }
+        } catch (IOException var18) {
+            var18.printStackTrace();
+        } catch (ParseException var19) {
+            var19.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    void Accept() {
+        String x = (String)this.List1.getSelectionModel().getSelectedItem();
+        Iterator it = this.requests.iterator();
+
+        while(it.hasNext()) {
+            JSONObject obj = (JSONObject)it.next();
+            if (obj.get("request").equals(x)) {
+                obj.put("status", "Accepted");
+            }
+        }
+
+        try {
+            FileWriter file = new FileWriter("src/main/java/data/request.json");
+            Throwable var4 = null;
+
+            try {
+                file.write(this.requests.toString());
+                file.flush();
+            } catch (Throwable var14) {
+                var4 = var14;
+                throw var14;
+            } finally {
+                if (file != null) {
+                    if (var4 != null) {
+                        try {
+                            file.close();
+                        } catch (Throwable var13) {
+                            var4.addSuppressed(var13);
+                        }
+                    } else {
+                        file.close();
+                    }
+                }
+
+            }
+        } catch (IOException var16) {
+            var16.printStackTrace();
+        }
+
+        int index = this.List1.getSelectionModel().getSelectedIndex();
+        if (index >= 0) {
+            this.List1.getItems().remove(index);
+        }
+
+    }
+
+    @FXML
+    void Reject() {
+        String x = (String)this.List1.getSelectionModel().getSelectedItem();
+        Iterator it = this.requests.iterator();
+
+        while(it.hasNext()) {
+            JSONObject obj = (JSONObject)it.next();
+            if (obj.get("request").equals(x)) {
+                obj.put("status", "Rejected");
+            }
+        }
+
+        try {
+            FileWriter file = new FileWriter("src/main/java/data/request.json");
+            Throwable var4 = null;
+
+            try {
+                file.write(this.requests.toString());
+                file.flush();
+            } catch (Throwable var14) {
+                var4 = var14;
+                throw var14;
+            } finally {
+                if (file != null) {
+                    if (var4 != null) {
+                        try {
+                            file.close();
+                        } catch (Throwable var13) {
+                            var4.addSuppressed(var13);
+                        }
+                    } else {
+                        file.close();
+                    }
+                }
+
+            }
+        } catch (IOException var16) {
+            var16.printStackTrace();
+        }
+
+        int index = this.List1.getSelectionModel().getSelectedIndex();
+        if (index >= 0) {
+            this.List1.getItems().remove(index);
+        }
+
+    }
+
+    @FXML
+    void Notification() throws java.text.ParseException {
+        Date strDate = null;
+
+        try {
+            Reader reader = new FileReader("src/main/java/data/request.json");
+            Throwable var4 = null;
+
+            try {
+                JSONArray json = (JSONArray)this.parser1.parse(reader);
+                Iterator it = json.iterator();
+
+                while(it.hasNext()) {
+                    JSONObject obj = (JSONObject)it.next();
+                    this.data = obj.get("checkout").toString();
+                    this.hotel1 = obj.get("hotel").toString();
+                    if (this.hotel1.equals(this.hotel)) {
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+                        strDate = sdf.parse(this.data);
+                        if ((new Date()).after(strDate)) {
+                            obj.replace("checkout", "33.33.3333");
+                            this.mess.setText("You have notifications!");
+                            Notifications.create().title("This room can be used again").text(obj.get("request").toString()).position(Pos.TOP_CENTER).showInformation();
+                            break;
+                        }
+                    }
+                }
+
+                try {
+                    FileWriter file = new FileWriter("src/main/java/data/request.json");
+                    Throwable var8 = null;
+
+                    try {
+                        file.write(json.toString());
+                        file.flush();
+                    } catch (Throwable var37) {
+                        var8 = var37;
+                        throw var37;
+                    } finally {
+                        if (file != null) {
+                            if (var8 != null) {
+                                try {
+                                    file.close();
+                                } catch (Throwable var36) {
+                                    var8.addSuppressed(var36);
+                                }
+                            } else {
+                                file.close();
+                            }
+                        }
+
+                    }
+                } catch (IOException var39) {
+                    var39.printStackTrace();
+                }
+            } catch (Throwable var40) {
+                var4 = var40;
+                throw var40;
+            } finally {
+                if (reader != null) {
+                    if (var4 != null) {
+                        try {
+                            reader.close();
+                        } catch (Throwable var35) {
+                            var4.addSuppressed(var35);
+                        }
+                    } else {
+                        reader.close();
+                    }
+                }
+
+            }
+        } catch (ParseException | FileNotFoundException var42) {
+            var42.printStackTrace();
+        } catch (IOException var43) {
+            var43.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    void Back() {
+        try {
+            AnchorPane pane = (AnchorPane)FXMLLoader.load(this.getClass().getClassLoader().getResource("Manager.fxml"));
+            this.go.getChildren().setAll(new Node[]{pane});
+        } catch (Exception var2) {
+            System.out.println("Cant load the window");
+        }
+
+    }
+}
