@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="RoomSelection" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proiect.fis.tripALME.controller.RoomSelectionController">
+<AnchorPane fx:id="RoomSelection" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proiect.fis.CC.controller.RoomSelectionController">
    <children>
       <ListView fx:id="roomList" layoutX="49.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" />
       <Button layoutX="381.0" layoutY="296.0" mnemonicParsing="false" onAction="#Select" text="Select" />
