@@ -1,4 +1,4 @@
-package proiect.fis.tripALME.controller;
+package proiect.fis.CC.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ import javafx.scene.text.Text;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import proiect.fis.tripALME.services.ManagerService;
+import proiect.fis.CC.services.ManagerService;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
