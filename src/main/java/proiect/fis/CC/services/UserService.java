@@ -1,11 +1,11 @@
-package proiect.fis.tripALME.services;
+package proiect.fis.CC.services;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import proiect.fis.tripALME.exceptions.UsernameAlreadyExistsException;
-import proiect.fis.tripALME.model.User;
+import proiect.fis.CC.exceptions.UsernameAlreadyExistsException;
+import proiect.fis.CC.model.User;
 
 import java.io.*;
 import java.security.MessageDigest;
