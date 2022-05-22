@@ -1,4 +1,4 @@
-package proiect.fis.tripALME.controller;
+package proiect.fis.CC.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
