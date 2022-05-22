@@ -1,4 +1,4 @@
-package proiect.fis.tripALME.controller;
+package proiect.fis.CC.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,8 +8,8 @@ import javafx.scene.layout.AnchorPane;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import proiect.fis.tripALME.exceptions.UsernameAlreadyExistsException;
-import proiect.fis.tripALME.services.UserService;
+import proiect.fis.CC.exceptions.UsernameAlreadyExistsException;
+import proiect.fis.CC.services.UserService;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
