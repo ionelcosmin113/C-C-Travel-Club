@@ -1,4 +1,4 @@
-package proiect.fis.tripALME.controller;
+package proiect.fis.CC.controller;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
