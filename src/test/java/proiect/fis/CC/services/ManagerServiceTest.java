@@ -1,4 +1,4 @@
-package proiect.fis.tripALME.services;
+package proiect.fis.CC.services;
 
 import org.junit.Test;
 
