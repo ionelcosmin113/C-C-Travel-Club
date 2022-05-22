@@ -1,4 +1,4 @@
-package proiect.fis.tripALME.model;
+package proiect.fis.CC.model;
 
 public class Rooms {
     private String number;
