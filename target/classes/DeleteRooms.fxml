@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="close" prefHeight="574.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proiect.fis.tripALME.controller.DeleteRoomsController">
+<AnchorPane fx:id="close" prefHeight="574.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proiect.fis.CC.controller.DeleteRoomsController">
    <children>
       <Text layoutX="144.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select the room you want to delete" wrappingWidth="294.13671875">
          <font>
