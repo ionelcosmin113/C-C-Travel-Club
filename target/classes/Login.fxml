@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="go" prefHeight="480.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proiect.fis.tripALME.controller.LoginController">
+<AnchorPane fx:id="go" prefHeight="480.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proiect.fis.CC.controller.LoginController">
     <children>
         <AnchorPane layoutX="344.0" layoutY="42.0" prefHeight="410.0" prefWidth="232.0" style="-fx-background-color: #c1c1c1;">
             <children>
@@ -28,7 +28,7 @@
                </font></Text>
             </children>
         </AnchorPane>
-        <Label layoutX="31.0" layoutY="102.0" text="WELCOME to TripALME">
+        <Label layoutX="31.0" layoutY="102.0" text="WELCOME to CC">
             <font>
                 <Font name="System Italic" size="25.0" />
             </font>
