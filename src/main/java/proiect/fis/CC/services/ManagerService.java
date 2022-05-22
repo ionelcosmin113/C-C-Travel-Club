@@ -1,11 +1,11 @@
-package proiect.fis.tripALME.services;
+package proiect.fis.CC.services;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import proiect.fis.tripALME.controller.AddRoomsController;
-import proiect.fis.tripALME.model.Rooms;
+import proiect.fis.CC.controller.AddRoomsController;
+import proiect.fis.CC.model.Rooms;
 
 import java.io.*;
 import java.util.ArrayList;
