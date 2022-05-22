@@ -1,4 +1,4 @@
-package proiect.fis.tripALME.exceptions;
+package proiect.fis.CC.exceptions;
 
 public class UsernameAlreadyExistsException extends Exception {
 
